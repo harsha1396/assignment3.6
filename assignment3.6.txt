@@ -1,0 +1,34 @@
+1.If 7TB is the available disk space per node (9 disks with 1 TB, 2 disk for operating system etc were excluded.).Assuming initial data size is 600 TB.
+How will you estimate the number of datanodes (n)?
+
+To calculate the number of data nodes the formula is 
+                  
+                      ->n= H/d
+     
+   where H refers to the Hadoop storage and d refers to the disk space available for each node present.
+Here,
+
+H=600TB   
+d=7TB 
+
+therefore,
+
+n=H/d  
+ =600/7 
+ =85.7
+ =86(approximately)
+ 
+Hence 86 data nodes are needed.
+
+2.Imagine that you are uploading a file of 500MB into HDFS.100MB of data is successfully
+uploaded into HDFS and another client wants to read the uploaded data while the upload is still in
+progress. What will happen in such a scenario, will the 100 MB of data that is uploaded will it be
+displayed?
+
+Let us consider the block size to be 100 MB.
+Here the client will first consider the 100 MB and it asks the namenode for the datanode location to store the 100 MB block. 
+After getting the datanode information from namenode the client will move to that datanode and starts copying the first block.
+Once the first block is copied to that datanode then the client gets the information about the block storage after that it begins the process for the next block.
+After this process only the first block of 100 MB will be visible while the other blocks being in current execution will not be visible.
+
+ 
